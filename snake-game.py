@@ -42,18 +42,23 @@ class Snake:
         for i in range(self.length):
             self.parent_screen.blit(self.Block, (self.Block_X[i], self.Block_Y[i]))
         pygame.display.flip()
-
-    def move_left(self):
-        self.direction = 'left'
+  def move_left(self):
+        if self.direction!='right':
+            self.direction = 'left'
 
     def move_right(self):
-        self.direction = 'right'
+        if self.direction != 'left':
+            self.direction = 'right'
+
 
     def move_up(self):
-        self.direction = 'up'
+        if self.direction != 'down':
+
+            self.direction = 'up'
 
     def move_down(self):
-        self.direction = 'down'
+        if self.direction!='up':
+            self.direction = 'down'
 
     def walk(self):
         for i in range(self.length - 1, 0, -1):
